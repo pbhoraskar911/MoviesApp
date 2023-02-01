@@ -1,0 +1,23 @@
+ext {
+    appCompatVersion = "1.6.0"
+    fragmentVersion = "1.5.5"
+    coreKtxVersion = "1.9.0"
+    lifecycleExtensionsVersion = "2.5.1"
+    navVersion = "2.5.3"
+    navAmimationVersion = "0.28.0"
+
+    retrofitVersion = "2.9.0"
+    gsonVersion = "2.10"
+    okHttpLoggingVersion = "4.10.0"
+
+    coilVersion = "2.2.2"
+
+    composeBomVersion = "2022.12.00"
+    materialDesignVersion = "1.7.0"
+
+    hiltVersion = "2.44"
+
+    jUnitVersion = "4.13.2"
+    jUnitExtVersion = "1.1.5"
+    espressoCoreVersion = "3.5.1"
+}
