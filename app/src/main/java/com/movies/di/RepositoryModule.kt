@@ -5,8 +5,8 @@ import com.movies.data.repository.DiscoverRepository
 import com.movies.data.repository.DiscoverRepositoryImpl
 import com.movies.data.repository.MovieDetailRepository
 import com.movies.data.repository.MovieDetailRepositoryImpl
-import com.movies.detail.domain.MovieDetailUseCase
-import com.movies.detail.domain.MovieDetailUseCaseImpl
+import com.movies.detail.domain.usecase.MovieDetailUseCase
+import com.movies.detail.domain.usecase.MovieDetailUseCaseImpl
 import com.movies.discover.domain.usecase.DiscoverUseCase
 import com.movies.discover.domain.usecase.DiscoverUseCaseImpl
 import dagger.Module

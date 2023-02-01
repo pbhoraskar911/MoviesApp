@@ -1,5 +1,6 @@
 package com.movies.data.network
 
+import com.movies.detail.domain.model.MovieDetailResponse
 import com.movies.discover.domain.model.DiscoverResponse
 import com.movies.utils.Urls.DISCOVER_URL
 import com.movies.utils.Urls.MOVIE_DETAIL_URL
@@ -25,7 +26,7 @@ interface NetworkService {
     suspend fun fetchMoviesDetails(
         @Path("movie_id") movieId: String,
         @QueryMap queryMap: Map<String, String>
-    ): Response<DiscoverResponse?>?
+    ): Response<MovieDetailResponse?>?
 
     @GET(SIMILAR_MOVIE_URL)
     suspend fun fetchSimilarMovies(
