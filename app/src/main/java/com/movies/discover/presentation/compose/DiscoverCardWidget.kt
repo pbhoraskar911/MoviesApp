@@ -7,7 +7,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.movies.discover.domain.model.Results
-import com.movies.utils.getMoviePoster
+import com.movies.utils.getProcessedImageUrl
 
 /**
  * Created by Pranav Bhoraskar
@@ -24,7 +24,7 @@ fun DiscoverCardWidget(moviesList: List<Results>?, onMovieClicked: (Int) -> Unit
             items(moviesList.size) { index ->
                 val movie = moviesList[index]
                 DiscoverCardItemMolecule(
-                    imageUrl = movie.getMoviePoster(),
+                    imageUrl = movie.posterPath.getProcessedImageUrl(),
                     title = movie.originalTitle.orEmpty(),
                     releaseDate = movie.releaseDate.orEmpty(),
                     movieId = movie.id,

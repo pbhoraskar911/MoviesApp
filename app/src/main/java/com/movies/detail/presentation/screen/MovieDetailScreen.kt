@@ -1,11 +1,11 @@
 package com.movies.detail.presentation.screen
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.sp
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.navigation.NavHostController
+import com.movies.detail.presentation.compose.MovieDetailsPage
 import com.movies.detail.presentation.viewmodel.MovieDetailViewModel
-import com.movies.ui.compose.atoms.TextAtomBold
 
 /**
  * Created by Pranav Bhoraskar
@@ -15,9 +15,10 @@ fun MovieDetailScreen(
     viewModel: MovieDetailViewModel,
     navController: NavHostController
 ) {
-    TextAtomBold(
-        text = "MovieId -- ${viewModel.getClickedMovieId()}",
-        textColor = Color.White,
-        fontSize = 20.sp
+    val movieDetailResponseState by viewModel.movieDetailResponseState.collectAsState()
+    val loadingState by viewModel.loadingState.collectAsState()
+    MovieDetailsPage(
+        movieDetailResponseState = movieDetailResponseState,
+        loadingState = loadingState
     )
 }

@@ -9,6 +9,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.sp
 
 /**
  * Created by Pranav Bhoraskar
@@ -100,5 +101,26 @@ fun TextAtomBold(
         textAlign = if (textAlignCenter) TextAlign.Center else TextAlign.Start,
         maxLines = 1,
         overflow = TextOverflow.Ellipsis
+    )
+}
+
+@Composable
+fun TextAtomRegularMultipleLines(
+    text: String,
+    textColor: Color,
+    fontSize: TextUnit,
+    modifier: Modifier = Modifier,
+    textAlignCenter: Boolean = true
+) {
+    Text(
+        text = text,
+        modifier = modifier,
+        style = TextStyle(
+            color = textColor,
+            fontWeight = FontWeight.W300,
+            fontSize = fontSize
+        ),
+        textAlign = if (textAlignCenter) TextAlign.Center else TextAlign.Justify,
+        lineHeight = 18.sp
     )
 }
