@@ -17,6 +17,7 @@ import com.movies.detail.presentation.viewmodel.MovieDetailViewModel
 import com.movies.discover.presentation.screen.DiscoverScreen
 import com.movies.discover.presentation.viewmodel.DiscoverViewModel
 import com.movies.ui.navigation.Screen
+import com.movies.ui.theme.MoviesTheme
 import com.movies.utils.Constants.KEY_MOVIE_ID
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,7 +29,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MoviesNavigation()
+            MoviesTheme {
+                MoviesNavigation()
+            }
         }
     }
 }

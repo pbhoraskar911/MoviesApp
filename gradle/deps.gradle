@@ -14,8 +14,10 @@ ext {
 
     composeBomVersion = "2022.12.00"
     materialDesignVersion = "1.7.0"
+    systemUiControllerVersion = "0.29.1-alpha"
 
     hiltVersion = "2.44"
+    hiltNavVersion = "1.0.0"
 
     jUnitVersion = "4.13.2"
     jUnitExtVersion = "1.1.5"
