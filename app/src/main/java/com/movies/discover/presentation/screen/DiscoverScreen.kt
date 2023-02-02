@@ -16,9 +16,6 @@ fun DiscoverScreen(
 ) {
     val discoverResponseState by viewModel.discoverResponseState.collectAsState()
     val loadingState by viewModel.loadingState.collectAsState()
-//    LaunchedEffect(key1 = true) {
-//        viewModel.getDiscoverMovies()
-//    }
     DiscoverMoviesPage(
         discoverResponseState = discoverResponseState,
         loadingState = loadingState,

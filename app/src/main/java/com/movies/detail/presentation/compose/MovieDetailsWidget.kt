@@ -1,6 +1,5 @@
 package com.movies.detail.presentation.compose
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -10,11 +9,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.movies.detail.domain.model.MovieDetailResponse
@@ -64,14 +63,12 @@ fun MovieDetailsMolecule(response: MovieDetailResponse) {
 fun MovieOverviewMolecule(overview: String?) {
     TextAtomBold(
         text = "Overview",
-        textColor = Color.DarkGray,
         fontSize = 18.sp
     )
     SpacerVerticalAtom(height = 4.dp)
     TextAtomRegularMultipleLines(
         text = overview.orEmpty(),
-        textColor = Color.DarkGray,
-        fontSize = 14.sp,
+        fontSize = MaterialTheme.typography.bodyMedium.fontSize,
         textAlignCenter = false
     )
 }
@@ -95,13 +92,11 @@ fun MovieInfoMolecule(response: MovieDetailResponse) {
 fun MovieTitleMolecule(title: String?, tagline: String?, status: String?) {
     TextAtomBold(
         text = title.orEmpty(),
-        textColor = Color.DarkGray,
         fontSize = 20.sp
     )
     SpacerVerticalAtom(height = 4.dp)
     TextAtomMedium(
         text = tagline.orEmpty(),
-        textColor = Color.DarkGray,
         fontSize = 14.sp
     )
 }
@@ -110,25 +105,24 @@ fun MovieTitleMolecule(title: String?, tagline: String?, status: String?) {
 fun CardComposable(data: String, label: String) {
     Card(
         shape = MaterialTheme.shapes.small,
-        modifier = Modifier
-            .size(100.dp)
+        elevation = CardDefaults.cardElevation(8.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.background
+        ),
+        modifier = Modifier.size(100.dp)
     ) {
         Column(
-            modifier = Modifier
-                .background(Color.LightGray)
-                .fillMaxSize(),
+            modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
             TextAtomMedium(
                 text = data,
-                textColor = Color.DarkGray,
                 fontSize = 14.sp
             )
             SpacerVerticalAtom(height = 4.dp)
             TextAtomRegular(
                 text = label,
-                textColor = Color.DarkGray,
                 fontSize = 14.sp
             )
         }

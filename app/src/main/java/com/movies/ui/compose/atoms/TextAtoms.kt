@@ -1,5 +1,6 @@
 package com.movies.ui.compose.atoms
 
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -18,7 +19,6 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun TextAtomRegular(
     text: String,
-    textColor: Color,
     fontSize: TextUnit,
     modifier: Modifier = Modifier,
     textAlignCenter: Boolean = true
@@ -27,7 +27,7 @@ fun TextAtomRegular(
         text = text,
         modifier = modifier,
         style = TextStyle(
-            color = textColor,
+            color = MaterialTheme.colorScheme.onBackground,
             fontWeight = FontWeight.W300,
             fontSize = fontSize
         ),
@@ -40,7 +40,6 @@ fun TextAtomRegular(
 @Composable
 fun TextAtomMedium(
     text: String,
-    textColor: Color,
     fontSize: TextUnit,
     modifier: Modifier = Modifier,
     textAlignCenter: Boolean = true
@@ -49,7 +48,7 @@ fun TextAtomMedium(
         text = text,
         modifier = modifier,
         style = TextStyle(
-            color = textColor,
+            color = MaterialTheme.colorScheme.onBackground,
             fontWeight = FontWeight.W400,
             fontSize = fontSize
         ),
@@ -60,32 +59,8 @@ fun TextAtomMedium(
 }
 
 @Composable
-fun TextAtomSemiBold(
-    text: String,
-    textColor: Color,
-    fontSize: TextUnit,
-    modifier: Modifier = Modifier,
-    textAlignCenter: Boolean = true
-) {
-    Text(
-        text = text,
-        modifier = modifier,
-        style = TextStyle(
-            color = textColor,
-            fontWeight = FontWeight.W500,
-            fontSize = fontSize
-        ),
-        textAlign = if (textAlignCenter) TextAlign.Center else TextAlign.Start,
-        maxLines = 1,
-        overflow = TextOverflow.Ellipsis
-    )
-}
-
-
-@Composable
 fun TextAtomBold(
     text: String,
-    textColor: Color,
     fontSize: TextUnit,
     modifier: Modifier = Modifier,
     textAlignCenter: Boolean = true
@@ -94,7 +69,7 @@ fun TextAtomBold(
         text = text,
         modifier = modifier,
         style = TextStyle(
-            color = textColor,
+            color = MaterialTheme.colorScheme.onBackground,
             fontWeight = FontWeight.W700,
             fontSize = fontSize
         ),
@@ -107,7 +82,6 @@ fun TextAtomBold(
 @Composable
 fun TextAtomRegularMultipleLines(
     text: String,
-    textColor: Color,
     fontSize: TextUnit,
     modifier: Modifier = Modifier,
     textAlignCenter: Boolean = true
@@ -116,11 +90,10 @@ fun TextAtomRegularMultipleLines(
         text = text,
         modifier = modifier,
         style = TextStyle(
-            color = textColor,
+            color = MaterialTheme.colorScheme.onBackground,
             fontWeight = FontWeight.W300,
             fontSize = fontSize
         ),
-        textAlign = if (textAlignCenter) TextAlign.Center else TextAlign.Justify,
-        lineHeight = 18.sp
+        textAlign = if (textAlignCenter) TextAlign.Center else TextAlign.Justify
     )
 }
