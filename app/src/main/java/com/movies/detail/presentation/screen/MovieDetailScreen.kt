@@ -19,6 +19,7 @@ fun MovieDetailScreen(
     val loadingState by viewModel.loadingState.collectAsState()
     MovieDetailsPage(
         movieDetailResponseState = movieDetailResponseState,
-        loadingState = loadingState
+        loadingState = loadingState,
+        onBackButtonClicked = { navController.popBackStack() }
     )
 }

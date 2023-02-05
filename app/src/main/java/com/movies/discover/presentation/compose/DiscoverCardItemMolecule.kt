@@ -2,7 +2,7 @@ package com.movies.discover.presentation.compose
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -25,7 +25,7 @@ fun DiscoverCardItemMolecule(
 ) {
     Card(
         shape = MaterialTheme.shapes.small,
-        modifier = Modifier.size(width = 140.dp, height = 240.dp),
+        modifier = Modifier.height(height = 240.dp),
         onClick = {
             movieId?.let { onMovieClicked.invoke(it) }
         },
