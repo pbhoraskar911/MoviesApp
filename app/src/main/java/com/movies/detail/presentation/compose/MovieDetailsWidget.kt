@@ -107,7 +107,7 @@ fun CardComposable(data: String, label: String) {
         shape = MaterialTheme.shapes.small,
         elevation = CardDefaults.cardElevation(8.dp),
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.background
+            containerColor = MaterialTheme.colorScheme.surface
         ),
         modifier = Modifier.size(100.dp)
     ) {
