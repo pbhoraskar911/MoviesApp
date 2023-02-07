@@ -6,4 +6,5 @@ package com.movies.utils
 object Constants {
     const val KEY_MOVIE_ID = "movieId"
     const val CONSTANT_API_KEY = "api_key"
+    const val MOVIE_LANGUAGE = "language"
 }

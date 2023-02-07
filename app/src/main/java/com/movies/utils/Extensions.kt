@@ -2,6 +2,7 @@ package com.movies.utils
 
 import com.movies.BuildConfig
 import com.movies.utils.Constants.CONSTANT_API_KEY
+import com.movies.utils.Constants.MOVIE_LANGUAGE
 import java.math.RoundingMode
 
 /**
@@ -14,7 +15,10 @@ fun Double?.sanitizeNumber(): Double {
     return this.toBigDecimal().setScale(1, RoundingMode.UP).toDouble()
 }
 
-fun queryParamHashMap() = hashMapOf(CONSTANT_API_KEY to BuildConfig.API_KEY)
+fun queryParamHashMap(language: String = "en") = hashMapOf(
+    CONSTANT_API_KEY to BuildConfig.API_KEY,
+    MOVIE_LANGUAGE to language
+)
 
 fun Double?.orZero() = this ?: 0.0
 

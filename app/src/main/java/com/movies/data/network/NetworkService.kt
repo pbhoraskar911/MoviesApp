@@ -2,6 +2,7 @@ package com.movies.data.network
 
 import com.movies.detail.domain.model.MovieDetailResponse
 import com.movies.discover.domain.model.DiscoverResponse
+import com.movies.similarmovies.domain.model.SimilarMoviesResponse
 import com.movies.utils.Urls.DISCOVER_URL
 import com.movies.utils.Urls.MOVIE_DETAIL_URL
 import com.movies.utils.Urls.NOW_PLAYING_MOVIE_URL
@@ -32,7 +33,7 @@ interface NetworkService {
     suspend fun fetchSimilarMovies(
         @Path("movie_id") movieId: String,
         @QueryMap queryMap: Map<String, String> // send language from movie details
-    ): Response<DiscoverResponse?>?
+    ): Response<SimilarMoviesResponse?>?
 
     @GET(NOW_PLAYING_MOVIE_URL)
     suspend fun fetchNowPlayingMovies(

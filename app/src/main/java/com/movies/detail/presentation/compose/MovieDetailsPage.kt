@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.movies.detail.presentation.viewmodel.MovieDetailScreenState
+import com.movies.detail.presentation.viewmodel.SimilarMoviesState
 import com.movies.ui.compose.molecules.ProgressIndicatorMolecule
 import com.movies.utils.ProgressBarState
 
@@ -27,21 +28,27 @@ import com.movies.utils.ProgressBarState
 @Composable
 fun MovieDetailsPage(
     movieDetailResponseState: MovieDetailScreenState,
+    similarMoviesState: SimilarMoviesState,
     loadingState: ProgressBarState,
-    onBackButtonClicked: () -> Unit
+    onBackButtonClicked: () -> Unit,
+    onSimilarMovieClicked: (Int) -> Unit
 ) {
     MovieDetailPageUi(
         movieDetailResponseState = movieDetailResponseState,
+        similarMoviesState = similarMoviesState,
         loadingState = loadingState,
-        onBackButtonClicked = { onBackButtonClicked() }
+        onBackButtonClicked = { onBackButtonClicked() },
+        onSimilarMovieClicked = onSimilarMovieClicked
     )
 }
 
 @Composable
 fun MovieDetailPageUi(
     movieDetailResponseState: MovieDetailScreenState,
+    similarMoviesState: SimilarMoviesState,
     loadingState: ProgressBarState,
-    onBackButtonClicked: () -> Unit
+    onBackButtonClicked: () -> Unit,
+    onSimilarMovieClicked: (Int) -> Unit
 ) {
     Scaffold(topBar = {
         TopAppBar(
@@ -67,7 +74,11 @@ fun MovieDetailPageUi(
                 .fillMaxSize()
                 .padding(it)
         ) {
-            MovieDetailsWidget(movieDetailResponseState.movieDetailResponseState)
+            MovieDetailsWidget(
+                movieDetailResponse = movieDetailResponseState.movieDetailResponseState,
+                similarMoviesResponse = similarMoviesState.similarMoviesResponseState,
+                onSimilarMovieClicked = onSimilarMovieClicked
+            )
             ProgressIndicatorMolecule(isLoading = loadingState == ProgressBarState.Loading)
         }
     }
