@@ -34,6 +34,4 @@ class SimilarMoviesRepositoryImpl @Inject constructor(
             emit(NetworkResult.Error(e))
         }
     }
-
 }
-
