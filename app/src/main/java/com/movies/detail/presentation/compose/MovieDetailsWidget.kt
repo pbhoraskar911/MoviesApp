@@ -8,15 +8,21 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.movies.detail.domain.model.MovieDetailResponse
+import com.movies.discover.presentation.compose.DiscoverCardItemMolecule
+import com.movies.similarmovies.domain.model.SimilarMoviesResponse
 import com.movies.ui.compose.atoms.CoilImageAtomCrop
 import com.movies.ui.compose.atoms.SpacerVerticalAtom
 import com.movies.ui.compose.atoms.TextAtomBold
@@ -29,17 +35,64 @@ import com.movies.utils.getProcessedImageUrl
  * Created by Pranav Bhoraskar
  */
 @Composable
-fun MovieDetailsWidget(movieDetailResponse: MovieDetailResponse?) {
+fun MovieDetailsWidget(
+    movieDetailResponse: MovieDetailResponse?,
+    similarMoviesResponse: SimilarMoviesResponse?,
+    onSimilarMovieClicked: (Int) -> Unit
+) {
+    val height = LocalConfiguration.current.screenHeightDp
+    val scrollState = rememberScrollState()
     movieDetailResponse?.let { response ->
-        Column(modifier = Modifier.fillMaxSize()) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(scrollState)
+        ) {
             CoilImageAtomCrop(
                 imageUrl = response.backdropPath.getProcessedImageUrl(),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(200.dp)
+                    .height((height / 3).dp)
             )
             SpacerVerticalAtom(height = 16.dp)
             MovieDetailsMolecule(response)
+            SimilarMoviesMolecule(
+                similarMoviesResponse,
+                onSimilarMovieClicked = onSimilarMovieClicked
+            )
+        }
+    }
+}
+
+@Composable
+fun SimilarMoviesMolecule(
+    similarMoviesResponse: SimilarMoviesResponse?,
+    onSimilarMovieClicked: (Int) -> Unit
+) {
+    if (similarMoviesResponse?.results.isNullOrEmpty()) return
+    val similarMoviesList = similarMoviesResponse?.results
+    Column(modifier = Modifier.padding(all = 16.dp)) {
+        similarMoviesList?.let {
+            SpacerVerticalAtom(height = 12.dp)
+            TextAtomBold(
+                text = "Similar Movies",
+                fontSize = 18.sp
+            )
+            SpacerVerticalAtom(height = 4.dp)
+            LazyRow(
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                content = {
+                    items(it.size) { index ->
+                        val movie = similarMoviesList[index]
+                        DiscoverCardItemMolecule(
+                            imageUrl = movie.posterPath.getProcessedImageUrl(),
+                            title = movie.title.orEmpty(),
+                            movieId = movie.id,
+                            onMovieClicked = onSimilarMovieClicked
+                        )
+                    }
+                }
+            )
         }
     }
 }

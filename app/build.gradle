@@ -82,6 +82,9 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycleExtensionsVersion")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$rootProject.lifecycleExtensionsVersion")
 
+    // Viewpager
+    implementation "com.google.accompanist:accompanist-pager:$rootProject.viewPagerVersion"
+
     // Fragment / ViewModels
     implementation "androidx.fragment:fragment-ktx:$rootProject.fragmentVersion"
 

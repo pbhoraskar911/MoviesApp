@@ -3,8 +3,10 @@ ext {
     fragmentVersion = "1.5.5"
     coreKtxVersion = "1.9.0"
     lifecycleExtensionsVersion = "2.5.1"
+
     navVersion = "2.5.3"
     navAmimationVersion = "0.28.0"
+    viewPagerVersion = "0.29.1-alpha"
 
     retrofitVersion = "2.9.0"
     gsonVersion = "2.10"

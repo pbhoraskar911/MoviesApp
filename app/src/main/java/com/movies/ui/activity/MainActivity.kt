@@ -148,6 +148,8 @@ fun NavGraphBuilder.addMovieDetailScreen(navController: NavHostController) {
         MovieDetailScreen(
             viewModel = movieDetailViewModel,
             navController = navController
-        )
+        ) { movieId ->
+            navController.navigate("${Screen.MovieDetail.route}/${movieId}")
+        }
     }
 }

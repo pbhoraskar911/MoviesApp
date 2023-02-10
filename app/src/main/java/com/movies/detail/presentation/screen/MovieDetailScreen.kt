@@ -13,13 +13,17 @@ import com.movies.detail.presentation.viewmodel.MovieDetailViewModel
 @Composable
 fun MovieDetailScreen(
     viewModel: MovieDetailViewModel,
-    navController: NavHostController
+    navController: NavHostController,
+    onSimilarMovieClicked: (Int) -> Unit
 ) {
     val movieDetailResponseState by viewModel.movieDetailResponseState.collectAsState()
+    val similarMoviesState by viewModel.similarMoviesState.collectAsState()
     val loadingState by viewModel.loadingState.collectAsState()
     MovieDetailsPage(
         movieDetailResponseState = movieDetailResponseState,
+        similarMoviesState = similarMoviesState,
         loadingState = loadingState,
-        onBackButtonClicked = { navController.popBackStack() }
+        onBackButtonClicked = { navController.popBackStack() },
+        onSimilarMovieClicked = onSimilarMovieClicked
     )
 }

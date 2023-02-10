@@ -19,7 +19,7 @@ import com.movies.ui.compose.atoms.CoilImageAtomCrop
 fun DiscoverCardItemMolecule(
     imageUrl: String,
     title: String,
-    releaseDate: String,
+    releaseDate: String? = null,
     movieId: Int?,
     onMovieClicked: (Int) -> Unit
 ) {
