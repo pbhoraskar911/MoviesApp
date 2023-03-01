@@ -1,8 +1,8 @@
 package com.movies.data.network
 
-import com.movies.detail.domain.model.MovieDetailResponse
-import com.movies.discover.domain.model.DiscoverResponse
-import com.movies.similarmovies.domain.model.SimilarMoviesResponse
+import com.movies.data.model.MovieDetailResponse
+import com.movies.data.model.DiscoverResponse
+import com.movies.data.model.SimilarMoviesResponse
 import com.movies.utils.Urls.DISCOVER_URL
 import com.movies.utils.Urls.MOVIE_DETAIL_URL
 import com.movies.utils.Urls.NOW_PLAYING_MOVIE_URL
