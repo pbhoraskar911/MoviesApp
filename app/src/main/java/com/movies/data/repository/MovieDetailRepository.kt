@@ -2,7 +2,7 @@ package com.movies.data.repository
 
 import com.movies.data.network.NetworkResult
 import com.movies.data.network.NetworkService
-import com.movies.detail.domain.model.MovieDetailResponse
+import com.movies.data.model.MovieDetailResponse
 import com.movies.utils.queryParamHashMap
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

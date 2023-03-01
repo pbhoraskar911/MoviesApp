@@ -19,10 +19,10 @@ import androidx.navigation.NavHostController
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
-import com.movies.detail.presentation.screen.MovieDetailScreen
-import com.movies.detail.presentation.viewmodel.MovieDetailViewModel
-import com.movies.discover.presentation.screen.DiscoverScreen
-import com.movies.discover.presentation.viewmodel.DiscoverViewModel
+import com.movies.ui.detail.presentation.screen.MovieDetailScreen
+import com.movies.ui.detail.presentation.viewmodel.MovieDetailViewModel
+import com.movies.ui.discover.presentation.screen.DiscoverScreen
+import com.movies.ui.discover.presentation.viewmodel.DiscoverViewModel
 import com.movies.ui.navigation.Screen
 import com.movies.ui.theme.MoviesTheme
 import com.movies.utils.Constants.KEY_MOVIE_ID
